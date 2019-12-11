@@ -4,10 +4,13 @@ const hbs = require('hbs')
 const geocode = require('./utils/geocodUtils')
 const forecast = require('./utils/forecastUtils')
 
-// Define path for exprees config
 const app = express()
+const port = process.env.PORT || 3000
+
+// Define path for exprees config
 const publicDirectoryPath = path.join(__dirname,'../public')
 const partialPath = path.join(__dirname,'../templates/partials')
+
 // setup handelbars engine and view location
 const viewsPath = path.join(__dirname,'../templates/views') // views directory contains all the file which will be renderd.
 app.set('view engine','hbs')        //setting the 'view engine' value
@@ -19,25 +22,21 @@ hbs.registerPartials(partialPath)
 
 app.get('/',(req,res) => {
     res.render("index",{
-        name: 'Amit',
+        name: 'Amit Dhaterwal',
         title:'See your weather here' 
-
     })
 })
 
 app.get('/about',(req,res) => {
     res.render('about',{
-        name: 'Amit',
+        name: 'Amit Dhaterwal',
         title: 'intrduction to the website',
-
-
     })
 })
 
-
 app.get('/help',(req,res) => {
     res.render('help',{
-    name:'Amit',
+    name:'Amit Dhaterwal',
     title: 'Help',
     helpText:'use this page for documentation'
     })
@@ -84,7 +83,7 @@ app.get('/help',(req,res) => {
 
 app.get('/help/*',(req,res) => {
     res.render('404',{
-        name:'Amit',
+        name:'Amit Dhaterwal',
         errorMessage:'Help article not found'
     })
 })
@@ -96,8 +95,9 @@ app.get('*',(req,res) => {
         
     })
 })
-app.listen(3000,() => {
-    console.log("server is running on port 3000.")
+
+app.listen(port,() => {
+    console.log("server is running on port " + port)
 })
 
 
