@@ -1,0 +1,14 @@
+<header>
+<h1>{{title}}</h1>
+
+{{!-- <div><a href="/index">Home</a></div>
+<div><a href="/about">About</a></div>
+<div><a href="/help">Help</a></div> --}}
+
+<div>
+    <a href="/">Home</a>     {{!-- don not give "" insted of "/" becoz we will not be able to move from any other pages as, suppose we are at "help" now if we click on "Home" then the current route is localhost:3000/help and we again passing "" empty path which will not have any effect on the current set route, Note: "/" will force currrent route to the root route i.e localhost:3ooo .--}}
+    <a href="/help"> Help</a>
+    <a href="/about"> About</a>
+    
+</div>
+</header>
